@@ -1,0 +1,59 @@
+.footer {
+       background-color: #b27171;
+       
+   }
+   
+   .brand-logo {
+       font-family: 'Georgia', serif;
+       font-size: 24px;
+       font-weight: bold;
+   }
+   
+   .social-icons i {
+       font-size: 20px;
+       margin: 0 10px;
+   }
+   
+   .social-icons i:hover {
+       color: #007bff;
+   }
+   
+   .list-inline {
+       padding-left: 0;
+       list-style: none;
+   }
+   
+   .list-inline-item {
+       display: inline;
+   }
+   
+   .list-inline-item a {
+       color: #000;
+       text-decoration: none;
+   }
+   
+   .list-inline-item a:hover {
+       text-decoration: underline;
+   }
+   
+   .helpline {
+       display: flex;
+       align-items: center;
+       margin-top: 10px;
+   }
+   
+   .helpline i {
+       font-size: 24px;
+       margin-right: 10px;
+   }
+   
+   .helpline small {
+       display: block;
+   }
+   
+   .helpline p {
+       margin: 0;
+       font-size: 18px;
+       font-weight: bold;
+   }
+   

@@ -1,0 +1,51 @@
+.LoginBanner {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 50vh; /* This makes the container take the full height of the viewport */
+       background-color: rgb(245, 245, 245);
+     
+   }
+   
+   .LoginBanner .input {
+       width: 500px;
+       border-radius: 1px;
+   }
+   .LoginBanner .form-container .button {
+       align-items: center;
+       justify-content: center;
+       background-color: rgb(17, 140, 151);
+       border: none;
+       border-radius: 1px;
+       width: 200px;
+       text-transform: capitalize;
+   }
+   
+   .LoginBanner .form-container .btnContainer {
+       display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4vh; /* Full viewport height for demonstration */
+   }
+   .LoginBanner .form-container .h1Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4vh; /* Full viewport height for demonstration */
+   }
+
+   .LoginBanner   .form-container { /* Correct the class selector to match the new class name */
+      
+       display: flex;
+       flex-direction: column; /* Flex direction column for vertical alignment */
+       padding: 0px;
+       border-radius: 8px; /* Optional: to make it look better */
+   }
+   
+   @media (max-width: 768px) {
+       .LoginBanner {
+           flex-direction: column;
+           padding: 20px;
+       }
+   }
+   

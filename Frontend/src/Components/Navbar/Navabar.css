@@ -1,0 +1,13 @@
+.Navbar button{
+       background-color: white;
+       border-radius: 30px;
+       border: none;
+       
+}
+.Navbar button:hover {
+       background-color: rgb(164, 164, 164);
+       border-radius: 30px;     
+}
+.Navbar .bg-body-tertiary{
+       background-color: white;
+}
