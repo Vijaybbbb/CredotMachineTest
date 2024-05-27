@@ -1,40 +1,51 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import './Footer.css'; // Custom CSS for additional styling
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBed, faCar, faHotel, faPerson, faPhone, faPlane, faShop, faTaxi, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faFacebook, faTwitter, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 
 const Footer = () => {
     return (
         <footer className="footer">
             <Container>
                 <Row>
-                    <Col md={4} className="text-center text-md-left">
+                    <Col className="pt-4">
                         <h5 className="brand-logo">DEMO</h5>
                     </Col>
-                    <Col md={4} className="text-center">
+                </Row>
+
+                <Row className='align-items-center g-5 pt-4'>
+                    <Col xs={{ order: 'last',}} md={{ order: 'first'}}  className="text-center text-md-left " >
                         <h6>CONNECTED WITH US</h6>
-                        <div className="social-icons">
-                            <i className="fab fa-facebook-f"></i>
-                            <i className="fab fa-twitter"></i>
-                            <i className="fab fa-linkedin-in"></i>
-                            <i className="fab fa-youtube"></i>
-                        </div>
+                        <Button className="me-2">
+                        <FontAwesomeIcon  icon={faFacebook}/>
+                        </Button>
+                        <Button className="me-2">
+                            <FontAwesomeIcon icon={faTwitter}/>
+                        </Button>
+                        <Button className="me-2">
+                            <FontAwesomeIcon icon={faInstagram}/>
+                        </Button>
+                        <Button className="me-2">
+                            <FontAwesomeIcon icon={faLinkedin}/>
+                        </Button>  
                     </Col>
-                    <Col md={4} className="text-center text-md-right">
+                    <Col xs={12} md={4} className="text-center ">
                         <h6>IMPORTANT LINKS</h6>
-                        <ul className="list-inline">
-                            <li className="list-inline-item"><a href="#">Terms & Conditions</a></li>
-                            <li className="list-inline-item"><a href="#">Privacy Policy</a></li>
-                            <li className="list-inline-item"><a href="#">Help & FAQs</a></li>
-                        </ul>
-                        <div className="helpline">
-                            <i className="fas fa-phone-alt"></i>
-                            <div>
-                                <small>Helpline</small>
-                                <p>1800 456 84788</p>
-                            </div>
-                        </div>
+                    </Col>
+                    <Col  xs={{ order: 'first'}} md={{ order: 'last'}}  className="text-center text-md-right ">
+                        <Button>
+                            <FontAwesomeIcon icon={faPhone}/>
+                        </Button>
+                        <h6>HelpLine</h6>
+                        <h4>1800 456 12343</h4>
                     </Col>
                 </Row>
+                
+
+
                 <Row className="mt-3">
                     <Col className="text-center">
                         <small>Arab Deals © 2023. All Rights Reserved</small>

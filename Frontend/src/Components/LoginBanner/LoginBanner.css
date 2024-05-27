@@ -3,7 +3,7 @@
        justify-content: center;
        align-items: center;
        height: 50vh; /* This makes the container take the full height of the viewport */
-       background-color: rgb(245, 245, 245);
+       background-color: #CDCDCD
      
    }
    
@@ -14,7 +14,7 @@
    .LoginBanner .form-container .button {
        align-items: center;
        justify-content: center;
-       background-color: rgb(17, 140, 151);
+       background-color: #1AA5C3;
        border: none;
        border-radius: 1px;
        width: 200px;
@@ -42,10 +42,20 @@
        border-radius: 8px; /* Optional: to make it look better */
    }
    
+
+
+
    @media (max-width: 768px) {
        .LoginBanner {
            flex-direction: column;
            padding: 20px;
        }
+       .LoginBanner .input {
+        width: 300px;
+        
+    }
+    .LoginBanner .form-container .button {
+        width: 80px;
+    }
    }
    

@@ -1,5 +1,5 @@
 .footer {
-       background-color: #b27171;
+       background-color:#FFFFFF
        
    }
    
@@ -57,3 +57,22 @@
        font-weight: bold;
    }
    
+
+   .footer Button{
+    background-color:#1AA5C3;
+    border-radius: 30px;
+    width: 40px;
+    height: 40px; 
+    border: none; 
+}
+.footer .me-2{
+    background-color:#e3e3e3;
+    color: #000;
+}
+
+
+@media (max-width: 768px) {
+    .brand-logo{
+        display: none;
+    }
+}
