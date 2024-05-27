@@ -1,0 +1,56 @@
+.Card .img-fluid {
+       max-width: 41%;
+       height: auto;
+   }
+   .Card {
+      width: 16rem;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+   }
+   .Card .mb-2{
+       width: 4rem;
+
+   }
+   .Card .m-2{
+       min-height: 18rem;
+   }
+   .Card .primary{
+              height: 50px;
+              width: 50px;
+              background-color: rgb(227, 225, 225);
+              border-radius: 30px;
+              border: none;
+              color: rgb(178, 178, 179);
+              position: absolute;
+              bottom: 250px;
+              right: 10px;
+
+   }
+
+   @media (max-width: 768px) {
+       .Card {
+              width: 10.5rem;
+              padding-left: 10px;
+           }
+           .Card .img-fluid {
+              max-width: 21%;
+              height: auto;
+              margin-right: -10px;
+          }
+          .Card .text{
+              font-size: 10px;
+          }
+          .Card .primary{
+              height: 10px;
+              width: 10px;
+              background-color: rgb(227, 225, 225);
+              border-radius: 30px;
+              border: none;
+              color: rgb(178, 178, 179);
+              position: absolute;
+              bottom: 250px;
+              right: 10px;
+
+   }
+   }
