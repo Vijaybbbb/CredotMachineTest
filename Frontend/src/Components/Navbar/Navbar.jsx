@@ -11,7 +11,7 @@ import { faBed, faCar, faHotel, faPerson, faPlane, faShop, faTaxi, faUser, faUse
 
 
 
-const NavbarPage = () => {
+const                                                                                                                                                                                                                                               NavbarPage = () => {
   return ( 
     <>
        <div className='Navbar'>
