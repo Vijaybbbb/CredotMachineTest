@@ -16,7 +16,7 @@ const { verifyTocken } = require('./utils/verifyTocken.js')
 
 connect();
 
-app.use(session({
+app.use(session({        
        secret: 'your-secret-key', // Change this to a random secret key
        resave: false,
        saveUninitialized: false
@@ -39,7 +39,7 @@ app.use('/user',userRouter)
 app.use('/admin',adminRouter)
 
 
-app.use('/',verifyTocken)
+//app.use('/',verifyTocken)
 
 //error handling middleware
 app.use((err,req,res,next)=>{

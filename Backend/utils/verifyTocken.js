@@ -1,6 +1,6 @@
 const jwt  = require('jsonwebtoken');
 const {createError}  = require('../utils/error.js');
-const User = require('../Model/user.js');
+const User = require('../Models/user.js');
 const mongoose  = require('mongoose')
 
 const verifyTocken = async(req,res,next) =>{

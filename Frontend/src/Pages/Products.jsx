@@ -5,6 +5,8 @@ import ProductCard from '../Components/Products/ProductCard';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import img from '../../src/assets/Images/image 48.png'
 import '../Css/products.css'
+import PaginationBox from '../Components/Pagination/PaginationBox';
+import Footer from '../Components/Footer/Footer'
 
 
 const Products = () => {
@@ -77,6 +79,9 @@ const Products = () => {
                                    </div>
                             </Row>
                      </Container>
+                     <PaginationBox/>
+                     <Footer/>
+                     
               </div>
        )
 }

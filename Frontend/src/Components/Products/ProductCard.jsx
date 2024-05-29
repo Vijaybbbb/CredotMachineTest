@@ -7,8 +7,18 @@ import { faFacebook} from "@fortawesome/free-brands-svg-icons";
 
 
 const ProductCard = ({product}) => {
+
+
+  function handleAddtoCart(e){
+    e.preventDefault()
+  }
+  function handleView(e){
+    e.preventDefault()
+    
+  }
+
   return (
-    <div className='Card'>
+    <div className='Card' onClick={handleView}>
       <Card className="m-2">
       {/* {product.isHot && <Badge bg="success" className="mb-2">HOT</Badge>} */}
       <div className="text-center p-2">
@@ -20,12 +30,12 @@ const ProductCard = ({product}) => {
         <Card.Text>{product.description}</Card.Text>
         <div className="d-flex justify-content-between">
           <div>
-            <strong>{product.price} OMR</strong>
+            <strong className='text'>{product.price} OMR</strong>
             <span className="text-muted text-decoration-line-through ms-2">
               {product.oldPrice} OMR
             </span>
           </div>
-          <Button variant="primary" className='primary'>
+          <Button variant="primary" className='primary' onClick={handleAddtoCart}>
               <FontAwesomeIcon icon={faAdd}/>
           </Button>
         </div>

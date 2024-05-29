@@ -3,15 +3,20 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './LoginBanner.css'; // Import the CSS file
 import { axiosRequest } from '../../utils/axiosRequest'
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginBanner = () => {
 
     const [successMessage,setSuccessMessage]  = useState()
     const [errorMessage,setErrorMessage] = useState()
+    const [isAuthenticated,setIsAuthenticated]  = useState()
     const [userData, setUserData] = useState({
         email: '',
         password: ''  
     })
+    const navigate = useNavigate()
 
     let getValue = (e) => {
         setUserData({
@@ -23,18 +28,22 @@ const LoginBanner = () => {
         function handleSubmit(e){
             e.preventDefault()
             e.preventDefault(); // Prevent default form submission
-            axiosRequest.post('/auth/login',userData,{withCredentials:true}).then((response) => {
+            axiosRequest.post('/auth/register',userData,{withCredentials:true}).then((response) => {
                setSuccessMessage(response.data.message)
+               toast.success("Login successfull!");
                //dispatch(storeUser(response.data._id))
-               navigate('/products')
+               setTimeout(()=>{
+                navigate('/products')
+               },2000)
                setIsAuthenticated(true)
                localStorage.setItem('isAuthenticated',true);
-           }).catch(err => setErrorMessage(err.response.data.message))
+           }).catch(err =>toast.error("Invalid Credentials"))
         }
 
 
     return (
         <div className='LoginBanner container'>
+            <ToastContainer/>
             <Form className='form-container' onSubmit={handleSubmit}>
             <div className='h1Container'>
             <h4>Login/Register your Account</h4><br />
