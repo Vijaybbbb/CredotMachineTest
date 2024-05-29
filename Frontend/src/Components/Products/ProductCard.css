@@ -17,14 +17,15 @@
        min-height: 18rem;
    }
    .Card .primary{
-              
+              width: clamp(10px, 50%, 40px);
+              height: clamp(10px, 50%, 40px);
 
               background-color: rgb(227, 225, 225);
               border-radius: 30px;
               border: none;
               color: rgb(178, 178, 179);
               position: absolute;
-              bottom: 250px;
+              bottom: 150px;
               right: 10px;
 
    }
@@ -44,21 +45,18 @@
               padding-left: 10px;
            }
            .Card .img-fluid {
-              max-width: 21%;
+              max-width: 40%;
               height: auto;
               margin-right: -10px;
           }
-        
-          .Card .primary{
-              height: 10px;
-              width: 10px;
-              background-color: rgb(227, 225, 225);
-              border-radius: 30px;
-              border: none;
-              color: rgb(178, 178, 179);
-              position: absolute;
-              bottom: 250px;
-              right: 10px;
+          .Card .text1{
+            font-size: clamp(12px,4vw,7px);
+        }
+        .Card .primary{
+            width: clamp(10px, 50%, 30px);
+            height: clamp(10px, 50%, 30px);
 
-   }
+ }
+        
+          
    }

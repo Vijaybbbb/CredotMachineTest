@@ -1,19 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, Button, Badge } from 'react-bootstrap';
 import './ProductCard.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd, faBed } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook} from "@fortawesome/free-brands-svg-icons";
+import { useNavigate } from 'react-router-dom';
 
 
 const ProductCard = ({product}) => {
 
+  const [] = useState()
+  const navigate = useNavigate()
 
-  function handleAddtoCart(e){
+  function handleAddtoCart(e) {
     e.preventDefault()
   }
-  function handleView(e){
+  function handleView(e) {
     e.preventDefault()
+    navigate('/SingleProduct')
     
   }
 
@@ -27,12 +31,12 @@ const ProductCard = ({product}) => {
       <Card.Body>
         
         <Card.Title className='text'>{product.name}</Card.Title>
-        <Card.Text>{product.description}</Card.Text>
+        <Card.Text className='text'>{product.description}</Card.Text>
         <div className="d-flex justify-content-between">
           <div>
-            <strong className='text'>{product.price} OMR</strong>
-            <span className="text-muted text-decoration-line-through ms-2">
-              {product.oldPrice} OMR
+            <strong className='text1'><small>OMR</small> {product.price} </strong>
+            <span className="text-muted text1 text-decoration-line-through ms-2">
+              {product.oldPrice} 
             </span>
           </div>
           <Button variant="primary" className='primary' onClick={handleAddtoCart}>
