@@ -4,12 +4,16 @@ import React from 'react';
 import { Container, Row, Col, Image, Button, Form, Card } from 'react-bootstrap';
 import img from '../../src/assets/Images/image 48.png'
 import '../Css/singleProduct.css'
+import NavbarPage from '../Components/Navbar/Navbar';
 
 const SingleProductPage = () => {
     return (
+       <div>
+        <NavbarPage />
         <Container>
             <Row className="my-4">
                 <Col md={6}>
+            
                     <Image  src={img} fluid />
                     <div className="mt-3">
                         <Image src={img} thumbnail className="me-2" />
@@ -17,7 +21,7 @@ const SingleProductPage = () => {
                     </div>
                 </Col>
                 <Col md={6}>
-                    <h1>iPhone 12 Pro max 256GB Deep Purple</h1>
+                    <h1 className='text'>iPhone 12 Pro max 256GB Deep Purple</h1>
                     <p><s>OMR 6,699.00</s> <strong>OMR 4,699.00</strong></p>
                     <p>(There are no reviews yet.)</p>
                     <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
@@ -76,6 +80,7 @@ const SingleProductPage = () => {
                 </Col>
             </Row>
         </Container>
+       </div>
     );
 };
 

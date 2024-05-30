@@ -14,6 +14,7 @@ const ProductCard = ({product}) => {
 
   function handleAddtoCart(e) {
     e.preventDefault()
+    e.stopPropagation()
   }
   function handleView(e) {
     e.preventDefault()

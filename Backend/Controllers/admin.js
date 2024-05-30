@@ -1,8 +1,13 @@
 const Products = require("../Models/product")
 const { createError } = require("../utils/error")
-
+const {cloudinary} = require('../utils/cloudinary')
 
 const createProduct = async (req, res, next) => {
+       console.log(req.files);
+       const uploadResult = await cloudinary.uploader.upload(req.files[0].path)
+       .catch((error)=>{console.log(error)});
+    
+
        try {
              const newProduct = {
               name:req.body.name,
@@ -11,8 +16,8 @@ const createProduct = async (req, res, next) => {
               color:req.body.color,
 
              } 
-              const products = await Products.create()
-              res.status(200).json(products)
+              // const products = await Products.create()
+              // res.status(200).json(products)
 
        } catch (error) {
               next(createError(401, "Products getting failed"))

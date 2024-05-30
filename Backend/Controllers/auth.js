@@ -31,7 +31,7 @@ const register =  async (req, res, next) => {
 
            }
            else{
-              const hashedPassword = await bcrypt.hash(password,10)   
+              const hashedPassword = await bcrypt.hash(password,10)    
               const newUser = {
                 username: username, 
                 email: email,
