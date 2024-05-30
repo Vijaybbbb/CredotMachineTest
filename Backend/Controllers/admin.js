@@ -3,30 +3,45 @@ const { createError } = require("../utils/error")
 const {cloudinary} = require('../utils/cloudinary')
 
 const createProduct = async (req, res, next) => {
-       console.log(req.files);
-       const uploadResult = await cloudinary.uploader.upload(req.files[0].path)
-       .catch((error)=>{console.log(error)});
-    
+       let urls=[]
+       const uploadPromises = req.files.map(async (image) => {
+              try {
+                  // Perform the upload and return the result
+                  const uploadResult = await cloudinary.uploader.upload(image.path);
+                  urls.push(uploadResult.secure_url)
+              } catch (error) {
+                  // Handle the error appropriately
+                  console.log(error);
+                  throw error; // Optionally re-throw the error if you want to handle it outside
+              }
+          });
+  
+          // Wait for all uploads to complete
+          await Promise.all(uploadPromises);
+      
 
+        console.log(urls);
        try {
              const newProduct = {
               name:req.body.name,
               price:req.body.price,
               type:req.body.type,
-              color:req.body.color,
-
+              colors:req.body.colors.split(','),
+              imagesURL:urls
              } 
-              // const products = await Products.create()
-              // res.status(200).json(products)
+            
+               const products = await Products.create(newProduct)
+               res.status(200).json(products)
 
-       } catch (error) {
-              next(createError(401, "Products getting failed"))
+       } catch (error) {  
+              console.log(error); 
+              next(createError(401, "Products getting failed"))       
        }
 }
 
 const getAllProducts = async (req, res, next) => {
        try {
-              const products = await Products.find({})
+              const products = await Products.find({}) 
               res.status(200).json(products)
 
        } catch (error) {

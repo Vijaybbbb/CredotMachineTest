@@ -7,60 +7,15 @@ import img from '../../src/assets/Images/image 48.png'
 import '../Css/products.css'
 import PaginationBox from '../Components/Pagination/PaginationBox';
 import Footer from '../Components/Footer/Footer'
+import useFetch from '../CustomHook/useFetch';
 
 
 const Products = () => {
-       const products = [
-              {
-                     image: img, // Replace with actual image path
-                     name: 'iPhone 14 Pro max 256GB - Deep Purple',
-                     description: 'Audio Amplifier, HDMI Projectors',
-                     price: 4699.00,
-                     oldPrice: 4699.00,
-                     isHot: true
-              },
-              {
-                     image: img, // Replace with actual image path
-                     name: 'iPhone 14 Pro max 256GB - Deep Purple',
-                     description: 'Smart Phone',
-                     price: 4699.00,
-                     oldPrice: 4699.00,
-                     isHot: false
-              },
-              {
-                     image: img, // Replace with actual image path
-                     name: 'iPhone 14 Pro max 256GB - Deep Purple',
-                     description: 'Audio Amplifier, HDMI Projectors',
-                     price: 4699.00,
-                     oldPrice: 4699.00,
-                     isHot: true
-              },
-              {
-                     image: img, // Replace with actual image path
-                     name: 'iPhone 14 Pro max 256GB - Deep Purple',
-                     description: 'Smart Phone',
-                     price: 4699.00,
-                     oldPrice: 4699.00,
-                     isHot: false
-              },
-              {
-                     image: img, // Replace with actual image path
-                     name: 'iPhone 14 Pro max 256GB - Deep Purple',
-                     description: 'Audio Amplifier, HDMI Projectors',
-                     price: 4699.00,
-                     oldPrice: 4699.00,
-                     isHot: true
-              },
-              {
-                     image: img, // Replace with actual image path
-                     name: 'iPhone 14 Pro max 256GB - Deep Purple',
-                     description: 'Smart Phone',
-                     price: 4699.00,
-                     oldPrice: 4699.00,
-                     isHot: false
-              },
-              // Add more products as needed
-       ];
+       const {data,loading} = useFetch('/admin/allProducts') 
+
+       console.log(data,'oruihgowei');
+
+
        return (
               <div className='products'>
                      <NavbarPage />
@@ -71,7 +26,7 @@ const Products = () => {
                             <Row>
                                    <div className='cardContainer'>
 
-                                          {products.map((product, index) => (
+                                          {data.map((product, index) => (
 
                                                  <ProductCard product={product} />
 

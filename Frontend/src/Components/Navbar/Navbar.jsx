@@ -8,17 +8,19 @@ import Col from 'react-bootstrap/Col';
 import './Navabar.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBed, faCar, faHotel, faPerson, faPlane, faShop, faTaxi, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from 'react-router-dom';
 
 
 
-const                                                                                                                                                                                                                                               NavbarPage = () => {
+const  NavbarPage = () => {
+  const navigate = useNavigate()
   return ( 
     <>
        <div className='Navbar'>
        <Navbar className="bg-body-tertiary justify-content-between">  
       <Form inline>
         <InputGroup>
-         <h1>Demo</h1>
+         <h1 onClick={()=>{navigate('/products')}}>Demo</h1>
         </InputGroup>
       </Form>
       <Form inline>
@@ -30,7 +32,7 @@ const                                                                           
              </Button>
           </Col>
           <Col xs="auto">
-            <Button  type="submit">
+            <Button onClick={()=>{navigate('/cart')}}>
             <FontAwesomeIcon style={{color:"black"}} icon={faShop}  className='adminPanelIcons'/> 
  
             </Button>

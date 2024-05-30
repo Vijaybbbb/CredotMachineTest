@@ -27,7 +27,7 @@ const ProductCard = ({product}) => {
       <Card className="m-2">
       {/* {product.isHot && <Badge bg="success" className="mb-2">HOT</Badge>} */}
       <div className="text-center p-2">
-        <img src={product.image} alt={product.name} className="img-fluid img" />
+        <img src={product.imagesURL[0]} alt={product.name} className="img-fluid img" />
       </div>
       <Card.Body>
         

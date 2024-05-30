@@ -32,14 +32,14 @@ const ManageProducts = () => {
        function setData(e){
               setProductData({
                      ...productData,
-                     colors:colors,
-                     [e.target.name]:e.target.value
+                     [e.target.name]:e.target.value,
+                     colors
               })
-              console.log(productData);
+             
        }
 
        function onInputChange(e){
-              //  console.log(e.target.files);
+              
               const files = Array.from(e.target.files);
               setImages([...images, ...files]);
                
@@ -115,7 +115,7 @@ const ManageProducts = () => {
                                           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                                  <Form.Control type="email" placeholder="Product Name" name='name' onChange={setData} /><br/>
                                                  <Form.Control type="number" placeholder="Product Price " name='price'  onChange={setData} /><br/>
-                                                 <Form.Select aria-label="Default select example">
+                                                 <Form.Select aria-label="Default select example" name='type'  onChange={setData}>
                                                         <option disabled>Select Type</option>
                                                         <option value="SmartPhone">SmartPhone</option>
                                                         <option value="Accessasories">Accessasories</option>

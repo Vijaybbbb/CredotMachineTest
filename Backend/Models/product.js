@@ -7,22 +7,20 @@ const productSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: true,
-        unique: true // Keeping unique constraint for email field
     },
     type: {
         type: String,
-        required: true,
     },
     color: {
         type: String,
     
     },
-    imageURL :{
-       type:String,
-    },
-    AdditionalImagesURL :{
-       type:String,
-    },
+    imagesURL :[
+        {
+            type:String,
+         },
+    ]
+   
     
     
 }, { timestamps: true });

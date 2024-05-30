@@ -5,6 +5,7 @@ import Login from './Pages/Login'
 import Products from './Pages/Products'
 import SingleProductPage from './Pages/SingleProduct'
 import AdminPage from './Pages/AdminPage'
+import CartPage from './Pages/Cart'
 
 function App() {
   const router = createBrowserRouter([
@@ -23,6 +24,10 @@ function App() {
     {
       path:"/admin",
       element:<AdminPage/>
+    },
+    {
+      path:"/cart",
+      element:<CartPage/>
     }
   ])
 
