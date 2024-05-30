@@ -20,15 +20,17 @@ const createProduct = async (req, res, next) => {
           await Promise.all(uploadPromises);
       
 
-        console.log(urls);
+       
        try {
              const newProduct = {
               name:req.body.name,
               price:req.body.price,
               type:req.body.type,
               colors:req.body.colors.split(','),
+              varients:req.body.varient.split(','),
               imagesURL:urls
              } 
+             console.log(req.body);
             
                const products = await Products.create(newProduct)
                res.status(200).json(products)

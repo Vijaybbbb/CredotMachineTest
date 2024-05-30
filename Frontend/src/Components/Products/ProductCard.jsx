@@ -5,20 +5,35 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd, faBed } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook} from "@fortawesome/free-brands-svg-icons";
 import { useNavigate } from 'react-router-dom';
-
+import {axiosRequest} from '../../utils/axiosRequest'
+import { useSelector } from 'react-redux';
 
 const ProductCard = ({product}) => {
 
-  const [] = useState()
+  const {userId} = useSelector(state => state.userDetails)
   const navigate = useNavigate()
+
 
   function handleAddtoCart(e) {
     e.preventDefault()
     e.stopPropagation()
+
+    axiosRequest.post(`/user/addtoCart/${userId}/${product._id}`).then((res)=>{
+      console.log(res);
+    }).catch((err)=>{
+      console.log(err);
+
+    })
+    
+
   }
+
+
+
+
   function handleView(e) {
     e.preventDefault()
-    navigate('/SingleProduct')
+    navigate(`/SingleProduct?${product._id}`)
     
   }
 

@@ -9,7 +9,9 @@ const ManageProducts = () => {
        const [show, setShow] = useState(false);
        const handleClose = () => setShow(false);
        const handleShow = () => setShow(true);
-       const [colors,setColors] = useState([])
+       const [colors,setColors] = useState(['white'])
+       const [varient,setVarient] = useState(['32GB'])
+
        const [productData,setProductData] = useState({})
        const [images,setImages]  = useState([])
 
@@ -27,13 +29,28 @@ const ManageProducts = () => {
                 }
               })         
        }
+       function getVarient(e){
+              const { checked, name } = event.target;
+
+              // Update the selectedColors array based on checkbox state
+              setVarient((preVarient) => {
+                if (checked) {
+                  // Add the color to the array if checked
+                  return [...preVarient, name];
+                } else {
+                  // Remove the color from the array if unchecked
+                  return preVarient.filter((varient) => varient !== name);
+                }
+              })         
+       }
 
 
        function setData(e){
               setProductData({
                      ...productData,
                      [e.target.name]:e.target.value,
-                     colors
+                     colors,
+                     varient
               })
              
        }
@@ -44,6 +61,7 @@ const ManageProducts = () => {
               setImages([...images, ...files]);
                
        }
+       console.log(productData);
 
        async function handleCreate(e) {
               e.preventDefault();
@@ -64,7 +82,7 @@ const ManageProducts = () => {
                                    'Content-Type': 'multipart/form-data'
                             }
                      }).then((res) => {
-
+                            
                             setShow(false)
 
                      }).catch((error) => {
@@ -148,6 +166,34 @@ const ManageProducts = () => {
                                                         label="Blue"
                                                         onChange={getColors}
                                                         name='blue'
+
+                                                 /><br /><br />
+
+                                                 <label htmlFor="">Varient</label><br /><br />
+                                                 <Form.Check
+                                                        inline
+                                                        type="checkbox"
+                                                        id="inline-checkbox-1"
+                                                        label="64GB"
+                                                        onChange={getVarient}
+                                                        name='64GB'
+                                                 />
+                                                 <Form.Check
+                                                        inline
+                                                        type="checkbox"
+                                                        id="inline-checkbox-2"
+                                                        label="124GB"
+                                                        onChange={getVarient}
+                                                        name='124GB'
+
+                                                 />
+                                                  <Form.Check
+                                                        inline
+                                                        type="checkbox"
+                                                        id="inline-checkbox-2"
+                                                        label="256GB"
+                                                        onChange={getVarient}
+                                                        name='256GB'
 
                                                  />
         

@@ -26,7 +26,7 @@ function App() {
       element:<AdminPage/>
     },
     {
-      path:"/cart",
+      path:"/cart/:color/:varient/:qty",
       element:<CartPage/>
     }
   ])

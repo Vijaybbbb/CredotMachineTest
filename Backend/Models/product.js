@@ -11,13 +11,11 @@ const productSchema = new mongoose.Schema({
     type: {
         type: String,
     },
-    color: {
-        type: String,
-    
-    },
+    colors: [],
+    varients:[],
     imagesURL :[
         {
-            type:String,
+            type:String,  
          },
     ]
    

@@ -13,8 +13,6 @@ import useFetch from '../CustomHook/useFetch';
 const Products = () => {
        const {data,loading} = useFetch('/admin/allProducts') 
 
-       console.log(data,'oruihgowei');
-
 
        return (
               <div className='products'>

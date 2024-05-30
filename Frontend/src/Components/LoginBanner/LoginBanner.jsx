@@ -6,9 +6,14 @@ import { axiosRequest } from '../../utils/axiosRequest'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from 'react-redux';
+import { storeUser } from '../../Redux/userSlice';
 
 const LoginBanner = () => {
 
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [successMessage,setSuccessMessage]  = useState()
     const [errorMessage,setErrorMessage] = useState()
     const [isAuthenticated,setIsAuthenticated]  = useState()
@@ -16,7 +21,7 @@ const LoginBanner = () => {
         email: '',
         password: ''  
     })
-    const navigate = useNavigate()
+
 
     let getValue = (e) => {
         setUserData({
@@ -31,7 +36,7 @@ const LoginBanner = () => {
             axiosRequest.post('/auth/register',userData,{withCredentials:true}).then((response) => {
                setSuccessMessage(response.data.message)
                toast.success("Login successfull!");
-               //dispatch(storeUser(response.data._id))
+               dispatch(storeUser(response.data._id))
                setTimeout(()=>{
                 navigate('/products')
                },2000)
