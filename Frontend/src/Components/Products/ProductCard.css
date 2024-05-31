@@ -20,13 +20,14 @@
               width: clamp(10px, 50%, 40px);
               height: clamp(10px, 50%, 40px);
 
-              background-color: rgb(227, 225, 225);
+              background-color: rgb(255, 255, 255);
               border-radius: 30px;
               border: none;
               color: rgb(178, 178, 179);
               position: absolute;
-              bottom: 150px;
+              bottom: 100px;
               right: 10px;
+              border: 1px solid;
 
    }
    .Card .primary:hover{
@@ -38,7 +39,18 @@
 .Card .text{
     font-size: clamp(12px,4vw,15px);
 }
+.Card .badge{
+    border-radius: 0;
+    margin: 4px;
+}
 
+.Card .textType{
+    font-size: clamp(12px,4vw,15px);
+    color: #1AA5C3;
+    font-weight: 1500;
+    text-transform: capitalize;
+
+}
    @media (max-width: 768px) {
        .Card {
               width: 10.5rem;
@@ -53,8 +65,10 @@
             font-size: clamp(12px,4vw,7px);
         }
         .Card .primary{
-            width: clamp(10px, 50%, 30px);
-            height: clamp(10px, 50%, 30px);
+            width: clamp(10px, 50%, 38px);
+            height: clamp(10px, 50%, 38px);
+            bottom: 30px;
+            right: 10px;
 
  }
         

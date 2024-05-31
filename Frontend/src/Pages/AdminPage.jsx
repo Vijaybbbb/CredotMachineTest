@@ -8,13 +8,17 @@ import ManageOrders from '../Components/Admin/ManageOrders';
 
 
 const AdminPage = () => {
+  const navigate = useNavigate()
   return (
     <Container fluid>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Navbar.Brand as={Link} to="/">Admin Dashboard</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          
+          <button onClick={()=>{
+            localStorage.clear()
+            navigate('/adminLogin')
+          }}>Logout</button>
         </Navbar.Collapse>
       </Navbar>
       <Container className="mt-3">

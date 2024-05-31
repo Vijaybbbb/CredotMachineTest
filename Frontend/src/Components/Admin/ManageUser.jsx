@@ -1,32 +1,52 @@
 // ManageUsers.js
 import React from 'react';
 import { Table, Button } from 'react-bootstrap';
+import useFetch from '../../CustomHook/useFetch';
+import { axiosRequest } from '../../utils/axiosRequest';
 
 const ManageUsers = () => {
+
+
+  const {data,loading,refetchData} = useFetch('/admin/allUsers') 
+
+  function handleBlock(e,blocked,id){
+    e.preventDefault()
+   console.log(blocked);
+   axiosRequest.post(`/admin/blockUser?id=${id}`,{blocked:blocked},{withCredentials:true}).then((res)=>{
+      console.log(res);
+      refetchData()
+  }).catch(err => console.log(err))
+}
+
+console.log(data);
   return (
     <div>
       <h2>Manage Users</h2>
-      <Button variant="primary" className="mb-3">Add User</Button>
+      
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
+            <td>ID</td>
+            <td>Email</td>
+            <td>Blocked</td>
           </tr>
         </thead>
         <tbody>
-          {/* Populate with user data */}
-          <tr>
-            <td>1</td>
-            <td>User 1</td>
-            <td>user1@example.com</td>
+         {
+          data && data.map((user)=>(
+            <tr>
+            <td>{user._id}</td>
+            <td>{user.email}</td>
+            <td>{String(user.isBlocked)}</td>
             <td>
-              <Button variant="warning" className="me-2">Edit</Button>
-              <Button variant="danger">Delete</Button>
+              
+              <Button variant="danger" onClick={(e)=>{handleBlock(e,user.isBlocked,user._id)}}>
+                 <span>{user?.isBlocked ? "UnBlock" : "Block"}</span>
+              </Button>
             </td>
           </tr>
+          ))
+         }
         </tbody>
       </Table>
     </div>

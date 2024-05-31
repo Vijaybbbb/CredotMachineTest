@@ -10,13 +10,11 @@ import { useSelector } from 'react-redux';
 
 const ProductCard = ({product}) => {
 
-  const {userId} = useSelector(state => state.userDetails)
+  const {userId,auth} = useSelector(state => state.userDetails)
   const navigate = useNavigate()
 
 
-  function handleAddtoCart(e) {
-    e.preventDefault()
-    e.stopPropagation()
+  function handleAddtoCart() {
 
     axiosRequest.post(`/user/addtoCart/${userId}/${product._id}`).then((res)=>{
       console.log(res);
@@ -40,22 +38,31 @@ const ProductCard = ({product}) => {
   return (
     <div className='Card' onClick={handleView}>
       <Card className="m-2">
-      {/* {product.isHot && <Badge bg="success" className="mb-2">HOT</Badge>} */}
+      {product && <Badge bg="success" className="mb-2 badge">HOT</Badge>}
       <div className="text-center p-2">
-        <img src={product.imagesURL[0]} alt={product.name} className="img-fluid img" />
+        <img src={product.imagesURL[0] ||product.imagesURL[1] } alt={product.name} className="img-fluid img" />
       </div>
       <Card.Body>
         
+        <Card.Title className='textType'>{product.type || 'SmartPhone'}</Card.Title>
         <Card.Title className='text'>{product.name}</Card.Title>
         <Card.Text className='text'>{product.description}</Card.Text>
         <div className="d-flex justify-content-between">
           <div>
             <strong className='text1'><small>OMR</small> {product.price} </strong>
             <span className="text-muted text1 text-decoration-line-through ms-2">
-              {product.oldPrice} 
+              {product.price+5000} 
             </span>
           </div>
-          <Button variant="primary" className='primary' onClick={handleAddtoCart}>
+          <Button variant="primary" className='primary' onClick={(e)=>{
+             e.preventDefault()
+             e.stopPropagation()
+            if(auth){
+              handleAddtoCart()
+            }else{
+              navigate('/login')
+            }
+          } }>
               <FontAwesomeIcon icon={faAdd}/>
           </Button>
         </div>

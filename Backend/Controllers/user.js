@@ -2,7 +2,6 @@ const { default: mongoose } = require("mongoose");
 const User = require("../Models/user");
 const Cart = require("../Models/cart");
 const products = require("../Models/product");
-
 const { createError } = require("../utils/error");
 const Orders = require("../Models/orders");
 const Products = require("../Models/product");
@@ -120,7 +119,18 @@ const deleteFromCart = async (req, res, next) => {
 
 
 
+const  myOrders = async(req,res,next)=>{
+       console.log(req.params.id);
+       try {
+              const products = await Orders.findOne({UserId:req.params.id})
+              res.status(200).json(products)
 
+       } catch (error) {
+              console.log(error);
+              next(createError(401, "Product Getting failed"))
+       }
+       
+}
 
 
 
@@ -200,5 +210,6 @@ module.exports = {
        checkOut,
        clearCart,
        getSingleProduct,
-       deleteFromCart
+       deleteFromCart,
+       myOrders
 }

@@ -66,7 +66,7 @@ useEffect(()=>{
         { userId },
         { withCredentials: true }).then(()=>{
            refetchData()
-          navigate('/products');
+           navigate('/success');
         }).catch(err=>console.log(err))
 
       } else {
@@ -121,7 +121,7 @@ useEffect(()=>{
                   <tr key={item._id}>
                     <td className="d-flex align-items-center position-relative">
                       <div className="image-container">
-                        <Image src={item.imagesURL[0]} rounded className="mr-2" />
+                        <Image src={item.imagesURL[0]} rounded className="mr-2 mr-2img" />
                         <button className="delete-button" onClick={() => deleteFromCart(item._id)}>
                               <FontAwesomeIcon style={{color:"black"}} icon={faClose}  className='adminPanelIcons'/> 
                           

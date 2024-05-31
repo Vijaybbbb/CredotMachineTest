@@ -5,6 +5,7 @@ import img from '../../assets/Images/image 48.png'
 
 const TopBrandsCarousel = () => {
   const brands = [
+    
     { name: 'Apple', src: 'https://res-console.cloudinary.com/dfozstttc/media_explorer_thumbnails/025c0c95c87276a3529db890f2c4e8d3/detailed' },
     { name: 'Realme', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130669/R3JvdXBfMjgyX2h1YXB5ag==/drilldown' },
     { name: 'Sony', src: 'https://res-console.cloudinary.com/dfozstttc/media_explorer_thumbnails/092057d41c08b7ff2fd23a652ccd55c5/detailed' },
@@ -12,7 +13,6 @@ const TopBrandsCarousel = () => {
     { name: 'Samsung', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130668/R3JvdXBfMjkyX2QxeHRnNw==/preview' },
     { name: 'LG', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130669/R3JvdXBfMjkxX2xiNDZ3eA==/preview' },
     { name: 'Dell', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130670/aW1hZ2VzXzFfLV9Db3B5X2lwY3RvaQ==/preview' },
-    { name: 'Apple', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717127659/bjgyeDA4eGttZXE3eGtmZXB4emo=/preview' },
     { name: 'Apple', src: 'https://res-console.cloudinary.com/dfozstttc/media_explorer_thumbnails/025c0c95c87276a3529db890f2c4e8d3/detailed' },
     { name: 'Realme', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130669/R3JvdXBfMjgyX2h1YXB5ag==/drilldown' },
     { name: 'Sony', src: 'https://res-console.cloudinary.com/dfozstttc/media_explorer_thumbnails/092057d41c08b7ff2fd23a652ccd55c5/detailed' },
@@ -20,7 +20,6 @@ const TopBrandsCarousel = () => {
     { name: 'Samsung', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130668/R3JvdXBfMjkyX2QxeHRnNw==/preview' },
     { name: 'LG', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130669/R3JvdXBfMjkxX2xiNDZ3eA==/preview' },
     { name: 'Dell', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130670/aW1hZ2VzXzFfLV9Db3B5X2lwY3RvaQ==/preview' },
-    { name: 'Apple', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717127659/bjgyeDA4eGttZXE3eGtmZXB4emo=/preview' },
     { name: 'Apple', src: 'https://res-console.cloudinary.com/dfozstttc/media_explorer_thumbnails/025c0c95c87276a3529db890f2c4e8d3/detailed' },
     { name: 'Realme', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130669/R3JvdXBfMjgyX2h1YXB5ag==/drilldown' },
     { name: 'Sony', src: 'https://res-console.cloudinary.com/dfozstttc/media_explorer_thumbnails/092057d41c08b7ff2fd23a652ccd55c5/detailed' },
@@ -28,8 +27,6 @@ const TopBrandsCarousel = () => {
     { name: 'Samsung', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130668/R3JvdXBfMjkyX2QxeHRnNw==/preview' },
     { name: 'LG', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130669/R3JvdXBfMjkxX2xiNDZ3eA==/preview' },
     { name: 'Dell', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717130670/aW1hZ2VzXzFfLV9Db3B5X2lwY3RvaQ==/preview' },
-    { name: 'Apple', src: 'https://res-console.cloudinary.com/dfozstttc/thumbnails/v1/image/upload/v1717127659/bjgyeDA4eGttZXE3eGtmZXB4emo=/preview' },
-   
     // Add more brands as needed
   ];
 

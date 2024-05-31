@@ -4,6 +4,7 @@ import './Footer.css'; // Custom CSS for additional styling
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBed, faCar, faHotel, faPerson, faPhone, faPlane, faShop, faTaxi, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faTwitter, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
@@ -34,6 +35,7 @@ const Footer = () => {
                     </Col>
                     <Col xs={12} md={4} className="text-center ">
                         <h6>IMPORTANT LINKS</h6>
+                        <h6><Link to='/adminLogin'>Admin Login</Link></h6>
                     </Col>
                     <Col  xs={{ order: 'first'}} md={{ order: 'last'}}  className="text-center text-md-right ">
                         <Button>

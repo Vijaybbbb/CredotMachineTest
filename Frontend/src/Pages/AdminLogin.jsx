@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import './LoginBanner.css'; // Import the CSS file
-import { axiosRequest } from '../../utils/axiosRequest'
+import '../Components/LoginBanner/LoginBanner.css'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
-import { storeUser,authenticated } from '../../Redux/userSlice';
+import NavbarPage from '../Components/Navbar/Navbar';
+import { axiosRequest } from '../utils/axiosRequest';
 
-const LoginBanner = () => {
+
+const AdminLoginBanner = () => {
 
 
     const dispatch = useDispatch()
@@ -33,36 +34,35 @@ const LoginBanner = () => {
         function handleSubmit(e){
             e.preventDefault()
             e.preventDefault(); // Prevent default form submission
-            axiosRequest.post('/auth/register',userData,{withCredentials:true}).then((response) => {
+            axiosRequest.post('/admin/adminLogin',userData,{withCredentials:true}).then((response) => {
                setSuccessMessage(response.data.message)
                toast.success("Login successfull!");
-               dispatch(storeUser(response.data._id))
-               dispatch(authenticated(true))
                setTimeout(()=>{
-                navigate('/products')
+                navigate('/admin')
                },2000)
                setIsAuthenticated(true)
-               localStorage.setItem('isAuthenticated',true);
+
            }).catch(err =>toast.error("Invalid Credentials"))
         }
 
 
     return (
+    <><NavbarPage/>
         <div className='LoginBanner container'>
             <ToastContainer/>
             <Form className='form-container' onSubmit={handleSubmit}>
             <div className='h1Container'>
-            <h4>Login/Register your Account</h4><br />
+            <h4>Admin Login</h4><br />
             
             </div><br />
                 <Form.Group className="mb-3 outer" controlId="formBasicEmail">
                     
-                    <Form.Control className='input' required name='email' type="email" placeholder="Enter email" onChange={getValue} />
+                    <Form.Control className='input' required name='email'  type="email" placeholder="Enter email" onChange={getValue} />
                 </Form.Group>
 
                 <Form.Group className="mb-3"  controlId="formBasicPassword">
                     
-                    <Form.Control className='input' required name='password' type="password" placeholder="Password" onChange={getValue}/>
+                    <Form.Control className='input' required name='password'   type="password" placeholder="Password" onChange={getValue}/>
                 </Form.Group>
                <div className='btnContainer'>
                       
@@ -70,9 +70,12 @@ const LoginBanner = () => {
                     LOGIN
                 </Button>
                </div>
+
             </Form>
         </div>
+               <h5 style={{marginLeft:'100px'}}>admin@123 pass:123</h5>
+    </>
     );
 }
 
-export default LoginBanner;
+export default AdminLoginBanner;

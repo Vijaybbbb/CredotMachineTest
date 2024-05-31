@@ -9,10 +9,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useFetch from '../CustomHook/useFetch';
 import { useSelector } from 'react-redux';
 import { axiosRequest } from '../utils/axiosRequest';
+import Footer from '../Components/Footer/Footer';
 
 const SingleProductPage = () => {
 
-    const {userId} = useSelector(state => state.userDetails)
+    const {userId,auth} = useSelector(state => state.userDetails)
     const location  = useLocation()
     let id = location.search.replace('?', '');
     const { data, loading, refetchData } = useFetch(`/user/getSingleProduct/${id}`);
@@ -66,11 +67,17 @@ const SingleProductPage = () => {
             <Row className="my-4">
                 <Col md={6}>
             
-                  <Image src={images ? images[0] : img} className="img-fluid img" />
+                  <Image src={images ? images[0] : img} className="img-fluid img mainImg" />
 
                     <div className="mt-3">
-                         <Image src={images ? images[1] : img} thumbnail className="me-2" /> 
-                         <Image src={images ? images[2] : img} thumbnail /> 
+                        {
+                            images && images.map(()=>(
+                             
+                                    <Image src={images ? images[1] : img} thumbnail className="img-fluid sideImage" /> 
+                             
+                            ))
+                        }
+
                     </div>
                 </Col>
                 <Col md={6}>
@@ -125,12 +132,20 @@ const SingleProductPage = () => {
                                 <Button variant="outline-secondary" className="ms-2" onClick={()=>{setQuantity(quantity + 1)}}>+</Button>
                             </Col>
                         </Form.Group>
-                        
-                        <Button variant="primary" className="mt-3" onClick={handleAddtoCart}>
-                            
-                            Add to Cart
-                            
-                        </Button>
+
+                            <Button variant="primary" className="mt-3" onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                                if (auth) {
+                                    handleAddtoCart()
+                                } else {
+                                    navigate('/login')
+                                }
+                            }}>
+
+                                Add to Cart
+
+                            </Button>
                     </Form>
                 </Col>
             </Row>
@@ -153,6 +168,7 @@ const SingleProductPage = () => {
                 </Col>
             </Row>
         </Container>
+        <Footer/>
        </div>
     );
 };

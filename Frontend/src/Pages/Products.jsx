@@ -12,8 +12,10 @@ import TopBrandsCarousel from '../Components/TopBrands/TopBrandsCarousel';
 
 
 const Products = () => {
-       const {data,loading} = useFetch('/admin/allProducts') 
 
+       
+       const {data,loading} = useFetch('/admin/allProducts') 
+       console.log(data);
 
        return (
               <div className='products'>
@@ -27,14 +29,14 @@ const Products = () => {
 
                                           {data.map((product, index) => (
 
-                                                 <ProductCard product={product} />
+                                                 <ProductCard product={product}/>
 
                                           ))}
                                    </div>
                             </Row>
                      </Container>
                      <TopBrandsCarousel/>
-                     <PaginationBox/>
+              
                      <Footer/>
                      
               </div>
