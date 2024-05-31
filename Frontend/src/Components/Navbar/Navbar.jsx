@@ -32,7 +32,7 @@ const  NavbarPage = () => {
              </Button>
           </Col>
           <Col xs="auto">
-            <Button onClick={()=>{        navigate(`/cart/${false}/${false}/${false}`)
+            <Button onClick={()=>{        navigate(`/cart/${'white'}/${'32GB'}/${1}`)
 }}>
             <FontAwesomeIcon style={{color:"black"}} icon={faShop}  className='adminPanelIcons'/> 
  

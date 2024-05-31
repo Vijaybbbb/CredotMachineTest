@@ -5,6 +5,10 @@ import useFetch from '../CustomHook/useFetch';
 import { useSelector } from 'react-redux';
 import { axiosRequest } from '../utils/axiosRequest';
 import { useNavigate, useParams } from 'react-router-dom';
+import '../Css/cart.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBed, faCar, faClose, faHotel, faPerson, faPlane, faShop, faTaxi, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
+
 
 const CartPage = () => {
 
@@ -74,13 +78,24 @@ useEffect(()=>{
     }
   }
 
+  function deleteFromCart(id){
+
+    axiosRequest.delete(`/user/deleteFromCart/${id}/${userId}`).then((res)=>{
+        refetchData()
+    }).catch((err)=>{
+        console.log(err);
+    })
+  }
+
 
   
-  if (loading) {
+  if (data.length == 0 ) {
     return (
       <>
       <NavbarPage />
-      <h1>no data</h1>
+      <div className="empty-cart-container">
+          <h1>Cart Empty</h1>
+        </div>
       </>
     )
   }
@@ -104,8 +119,14 @@ useEffect(()=>{
               <tbody>
                 {cartItems.map((item, index) => (
                   <tr key={item._id}>
-                    <td className="d-flex align-items-center">
-                      <Image src={item.imagesURL[0]} rounded className="mr-2" />
+                    <td className="d-flex align-items-center position-relative">
+                      <div className="image-container">
+                        <Image src={item.imagesURL[0]} rounded className="mr-2" />
+                        <button className="delete-button" onClick={() => deleteFromCart(item._id)}>
+                              <FontAwesomeIcon style={{color:"black"}} icon={faClose}  className='adminPanelIcons'/> 
+                          
+                        </button>
+                      </div>
                       <span>{item.name}</span>
                     </td>
                     <td>OMR {item.price.toFixed(2)}</td>
@@ -115,6 +136,7 @@ useEffect(()=>{
                       <Button variant="outline-secondary" className="ml-2" onClick={() => handleQuantityChange(index, 1)}>+</Button>
                     </td>
                     <td>OMR {(item.price * item.quantity).toFixed(2)}</td>
+                    
                   </tr>
                 ))}
               </tbody>

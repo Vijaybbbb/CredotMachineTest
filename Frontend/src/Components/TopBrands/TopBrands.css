@@ -1,0 +1,35 @@
+.top-brands-container {
+       text-align: center;
+       padding: 20px;
+     }
+     
+     .brand-item {
+       flex: 1;
+       max-width: 100px; /* Adjust as needed */
+       max-height: 100px; /* Adjust as needed */
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin: 0 10px; /* Adjust spacing between images */
+     }
+     
+     .brand-image {
+       max-width: 90%; /* Adjust size as needed */
+       max-height: 90%; /* Adjust size as needed */
+       border-radius: 70%;
+       object-fit: contain;
+       padding: 10px;
+     }
+     
+     .carousel-control-prev-icon,
+     .carousel-control-next-icon {
+       background-color: black; /* Adjust the color as needed */
+       border-radius: 50%;
+     }
+     
+    .top-brands-container h2{
+       font-size: 26px;
+     }
+     .top-brands-container {
+       margin-top: 100px;
+     }

@@ -90,6 +90,44 @@ const  addToCart  = async(req,res,next) =>{
 }
 
 
+
+const deleteFromCart = async (req, res, next) => {
+
+       try {
+              const userId = req.params.userId;
+              const productId = req.params.productId
+              console.log(userId,productId);
+
+              // Update the cart to remove the specified blog ID
+              const updatedCart = await Cart.findOneAndUpdate(
+                     { UserId: new mongoose.Types.ObjectId(userId) },
+                     { $pull: { Products: productId } },
+                     { new: true } // This option returns the modified document after update
+              );
+
+              if (!updatedCart) {
+                     return res.status(404).json({ message: 'Cart not found' });
+              }
+
+              res.status(200).json('deleted succesfully')
+
+       } catch (error) {
+              console.log(error)
+              return next(createError(401, 'Failed to delete from cart'))
+       }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 const checkOut = async(req,res,next) =>{
 
        const order = {
@@ -161,5 +199,6 @@ module.exports = {
        allProducts,
        checkOut,
        clearCart,
-       getSingleProduct
+       getSingleProduct,
+       deleteFromCart
 }

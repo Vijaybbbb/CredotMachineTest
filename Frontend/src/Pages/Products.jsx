@@ -8,6 +8,7 @@ import '../Css/products.css'
 import PaginationBox from '../Components/Pagination/PaginationBox';
 import Footer from '../Components/Footer/Footer'
 import useFetch from '../CustomHook/useFetch';
+import TopBrandsCarousel from '../Components/TopBrands/TopBrandsCarousel';
 
 
 const Products = () => {
@@ -32,6 +33,7 @@ const Products = () => {
                                    </div>
                             </Row>
                      </Container>
+                     <TopBrandsCarousel/>
                      <PaginationBox/>
                      <Footer/>
                      
