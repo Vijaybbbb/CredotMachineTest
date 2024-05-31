@@ -24,6 +24,10 @@ function App() {
       element:<Products/>
     },
     {
+      path:"/",
+      element:<Products/>
+    },
+    {
       path:"/SingleProduct",
       element:<SingleProductPage />
     },
