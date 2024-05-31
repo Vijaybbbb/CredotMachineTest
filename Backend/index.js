@@ -6,7 +6,7 @@ dotenv.config()
 const authRouter  = require('./Routes/auth.js')
 const userRouter  = require('./Routes/user.js')
 const adminRouter  = require('./Routes/admin.js')
-
+const PORT = process.env.PORT ||  3000
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser');
 const cors = require('cors')
@@ -70,4 +70,4 @@ app.post('/clearCookie', (req, res) => {
 
 app.get('/',verifyTocken,(req,res)=>{
       res.status(200).json({message:'success'})
-}).listen(3000)
+}).listen(PORT)
